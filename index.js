@@ -5,30 +5,6 @@ const app = express()
 const mongoose = require('mongoose')
 const Note = require('./models/note')
 
-const password = process.argv[2]
-console.log(password)
-// DO NOT SAVE YOUR PASSWORD TO GITHUB!!
-const url =
-    `mongodb+srv://admin:${password}@fullstackopen.tvmfhoa.mongodb.net/noteApp?retryWrites=true&w=majority`
-
-mongoose.set('strictQuery', false)
-mongoose.connect(url)
-
-const noteSchema = new mongoose.Schema({
-    content: String,
-    important: Boolean,
-})
-
-noteSchema.set('toJSON', {
-    transform: (document, returnedObject) => {
-        returnedObject.id = returnedObject._id.toString()
-        delete returnedObject._id
-        delete returnedObject.__v
-    }
-})
-
-const Note = mongoose.model('Note', noteSchema)
-
 app.use(express.static('dist'))
 app.use(cors())
 app.use(express.json())

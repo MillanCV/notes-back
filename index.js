@@ -2,7 +2,6 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const app = express()
-const mongoose = require('mongoose')
 const Note = require('./models/note')
 
 app.use(express.static('dist'))
@@ -19,25 +18,6 @@ const requestLogger = (request, response, next) => {
 
 app.use(requestLogger)
 
-
-
-let notes = [
-    {
-        id: 1,
-        content: "HTML is easy",
-        important: true
-    },
-    {
-        id: 2,
-        content: "Browser can execute only JavaScript",
-        important: false
-    },
-    {
-        id: 3,
-        content: "GET and POST are the most important methods of HTTP protocol",
-        important: true
-    }
-]
 app.get('/', (request, response) => {
     response.send('<h1>Hello Wdf!</h1>')
 })

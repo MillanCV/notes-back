@@ -5,6 +5,7 @@ if (process.argv.length < 3) {
 }
 
 const password = process.argv[2]
+console.log(process.argv)
 
 const url = `mongodb+srv://admin:${password}@fullstackopen.tvmfhoa.mongodb.net/phonebookApp?retryWrites=true&w=majority`
 

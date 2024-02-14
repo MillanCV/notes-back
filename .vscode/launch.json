@@ -12,10 +12,7 @@
                 "<node_internals>/**"
             ],
             "command": "npm run dev",
-            "program": "${workspaceFolder}/index.js",
-            "args": [
-                "admin"
-            ]
+            "program": "${workspaceFolder}/index.js"
         }
     ]
 }
